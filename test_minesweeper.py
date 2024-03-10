@@ -16,8 +16,8 @@ def test_count_adjacent_mines():
     board = initialise_board()
     positions = [[0, 1], [1, 0], [1, 1]]  # Mines at (0,1), (1,0), (1,1)
     board = insert_mines(board, positions)
-    assert count_adjacent_mines(board, 0, 0) == 2
-    assert count_adjacent_mines(board, 0, 1) == 1
+    assert count_adjacent_mines(board, 0, 0) == 3
+    assert count_adjacent_mines(board, 0, 1) == 2
     assert count_adjacent_mines(board, 1, 1) == 2
 
 
@@ -47,5 +47,4 @@ def test_check_win():
     assert check_win(board) is False
     board = ["O"] * 25  # All spaces need to be uncovered
     assert check_win(board) is False
-
 

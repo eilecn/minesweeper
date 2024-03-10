@@ -37,7 +37,8 @@ def insert_mines(board, positions):
 
     Arguments:
         board (list): The initialised board
-        positions (list of lists of int): A list of lists containing the coordinates for each mine's position on the board.
+        positions (list of lists of int): A list of lists containing the coordinates for each mine's position on the
+        board.
 
     Returns:
         board (list): The board with mines inserted.
@@ -61,7 +62,7 @@ def insert_mines(board, positions):
 
 def count_adjacent_mines(board, row, col):
     """
-    Counts the number of adjacent mines (excluding diagonals) to any given position in the 5x5 board.
+    Counts the number of adjacent mines (including diagonals) to any given position in the 5x5 board.
 
     Arguments:
          board (list): The board with mines inserted.
@@ -91,6 +92,26 @@ def count_adjacent_mines(board, row, col):
     # Checking if there is a mine on the right
     if col != 4:
         if board[(row*5) + col + 1] == "X":
+            number += 1
+
+    # Checking if there is a mine on the top left diagonal
+    if row != 0 and col != 0:
+        if board[(row*5) + col - 6] == "X":
+            number += 1
+
+    # Checking if there is a mine on the top right diagonal
+    if row != 0 and col != 4:
+        if board[(row*5) + col - 4] == "X":
+            number += 1
+
+    # Checking if there is a mine on the bottom left diagonal
+    if row != 4 and col != 0:
+        if board[(row*5) + col + 4] == "X":
+            number += 1
+
+    # Checking if there is a mine on the bottom right diagonal
+    if row != 4 and col != 4:
+        if board[(row*5) + col + 6] == "X":
             number += 1
 
     return number

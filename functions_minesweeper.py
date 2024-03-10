@@ -130,7 +130,7 @@ def play_turn(board, row, column):
             board[row * 5 + column] = " "
         if count_adjacent_mines(board, row, column) != 0:
             board[row * 5 + column] = str(count_adjacent_mines(board, row, column))
-            return board, result
+    return board, result
 
 
 def check_win(board):

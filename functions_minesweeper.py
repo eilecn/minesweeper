@@ -113,6 +113,11 @@ def play_turn(board, row, column):
     Preconditions:
         Inputted integers for arguments row and column must be between 0 and 4 inclusive.
     """
+    if board[(row*5+column)] in [" ", "1", "2", "3", "4"]:
+        # If player chooses a position that has already been uncovered
+        result = False
+        print("Position has already been uncovered!")
+
     if board[(row*5+column)] == "X":
         # If player uncovers a mine
         result = True
